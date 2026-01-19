@@ -1,0 +1,466 @@
+🔐 USER & CUSTOMER MANAGEMENT TABLES
+1️⃣ UserDetailsView
+✅ Purpose
+
+This is a READ-ONLY consolidated view of user data.
+It combines user + role + permission + customer + application info in one place.
+
+👉 Used mainly for:
+
+UI screens
+
+Authorization checks
+
+Showing complete user profile with permissions
+
+Think of it as “Full User Profile View”.
+
+🧱 Columns
+
+view_id → Unique ID of this view row
+
+user_id → Actual user ID
+
+user_name → Login username (ex: sai.prakash)
+
+mobile_number, email_id → Contact info
+
+first_name, last_name
+
+last_login_ts → Last login time
+
+title → Job title (ex: Reviewer, Admin)
+
+status → Active / Inactive
+
+created_ts → User created date
+
+Role & Permission related
+
+group_id, role_id, role_name
+
+global_scope, user_role_scope, resource_scope
+
+actions → What actions user can perform (read/write/approve)
+
+Customer & App
+
+customer_id, customer_name
+
+application_id, application_name
+
+resource_id, resource_name, resource_type_name
+
+📌 Example
+
+“Sai Prakash is a Reviewer for Customer ABC, can approve articles, logged in yesterday.”
+
+2️⃣ Customers
+✅ Purpose
+
+Represents a company / client organization using your platform.
+
+👉 Example: Pfizer, Novartis, Cipla
+
+🧱 Columns
+
+customer_id → Company ID
+
+customer_name → Company name
+
+purchased_plan → Subscription plan
+
+email, primary_contact, secondary_contact
+
+address, billing_address
+
+customer_details_json → Extra data
+
+status → Active / Inactive
+
+created_ts, updated_ts
+
+created_by, updated_by
+
+📌 Example
+
+Customer = “Pfizer”, Plan = “Enterprise”, Status = Active
+
+3️⃣ UserMgmtUsers
+✅ Purpose
+
+Stores actual login users.
+
+👉 This is the main users table.
+
+🧱 Columns
+
+user_id → Primary key
+
+first_name, last_name
+
+email_id → Unique
+
+username → Login name
+
+mobile_number
+
+title → Job title
+
+user_details_json → Extra profile info
+
+customer_id, customer_name
+
+status → Active / Disabled
+
+auth_type → SSO / Password
+
+password_hash
+
+activation_ts
+
+last_login_ts
+
+created_ts, updated_ts
+
+📌 Example
+
+User = Sai, Email = sai@gmail.com
+, Customer = Pfizer, Status = Active
+
+🏢 CLIENT & CONFIGURATION
+4️⃣ Client
+✅ Purpose
+
+Represents a sub-division of a customer.
+
+👉 One customer can have multiple clients.
+
+🧱 Columns
+
+client_id
+
+company_id → FK to Customers
+
+client_name → Ex: “Pfizer Oncology”
+
+code → Unique client code
+
+address
+
+email_contact
+
+customer_client_type
+
+article_sources
+
+guidelines
+
+is_active, is_deleted
+
+created_ts, updated_ts
+
+📌 Example
+
+Customer: Pfizer
+Client: Pfizer Oncology
+
+💊 DRUGS & SOURCES
+5️⃣ Drug
+✅ Purpose
+
+Stores drug / molecule details monitored by system.
+
+🧱 Columns
+
+drug_id
+
+name → Drug name
+
+formula
+
+aliases
+
+generic_name
+
+brands
+
+cas_number
+
+other_cas_numbers
+
+client_id → Which client monitors this drug
+
+search_strategy
+
+mandatory_terms, optional_terms, exclusion_terms
+
+is_active, is_deleted
+
+created_ts, updated_ts
+
+📌 Example
+
+Drug = Paracetamol
+Brands = Crocin, Calpol
+
+6️⃣ Source
+✅ Purpose
+
+Defines article sources (PubMed, FDA, WHO, etc.)
+
+🧱 Columns
+
+source_id
+
+source_name → PubMed
+
+source_code → PUBMED
+
+guidelines
+
+homepage
+
+is_active
+
+created_ts
+
+🧑‍⚕️ REVIEW FLOW
+7️⃣ ReviewLevel
+✅ Purpose
+
+Defines review stages.
+
+👉 Example: L1 → L2 → Medical Review
+
+🧱 Columns
+
+review_level_id
+
+review_level_name
+
+review_level_description
+
+review_level_additional_details_json
+
+8️⃣ CompanyReviewLevelMapping
+✅ Purpose
+
+Defines which review levels a company uses and order.
+
+🧱 Columns
+
+company_id
+
+review_level_id
+
+review_level_serial_number → Order (1,2,3)
+
+is_active
+
+📌 Example
+
+Pfizer uses L1 → L2 → QA
+
+📄 ARTICLES & AI
+9️⃣ Article
+✅ Purpose
+
+Stores raw articles scraped from sources.
+
+🧱 Columns
+
+article_id
+
+doi_id
+
+title
+
+abstract
+
+keywords
+
+article_type
+
+publish_date
+
+journal_name
+
+source_id
+
+drugs
+
+author1_info
+
+case_id
+
+scrape_id
+
+created_ts
+
+🔟 ArticleAiData
+✅ Purpose
+
+Stores AI analysis results for articles.
+
+🧱 Columns
+
+process_id
+
+article_id
+
+related_drugs
+
+article_tags
+
+article_therapeutic
+
+is_article_icsr
+
+is_article_ar
+
+is_article_labelled
+
+1️⃣1️⃣ CompanyMappedArticle
+✅ Purpose
+
+Maps article → company → client, and tracks review status.
+
+🧱 Columns
+
+company_id
+
+client_id
+
+article_id
+
+scrape_id
+
+current_review_level
+
+overall_review_status
+
+article_score
+
+📌 This is the CENTRAL TABLE of workflow
+
+1️⃣2️⃣ CompanyMappedArticlesAIData
+✅ Purpose
+
+Stores AI output per company-mapped article.
+
+👉 Supports versioning and duplication handling
+
+👩‍⚕️ ASSIGNMENT & COMMENTS
+1️⃣3️⃣ Assignment
+✅ Purpose
+
+Tracks which reviewer is assigned to which article at which level.
+
+🧱 Columns
+
+assignment_id
+
+cma_mapping_id
+
+review_level_id
+
+reviewer_id
+
+assignment_review_status
+
+turnaround_time
+
+1️⃣4️⃣ Comment
+✅ Purpose
+
+Stores reviewer comments.
+
+🧱 Columns
+
+comment_text
+
+assignment
+
+reviewer
+
+created_ts
+
+🧲 SCRAPING & MONITORING
+1️⃣5️⃣ ScrapeRequest
+Purpose
+
+Manual or automatic scrape requests.
+
+1️⃣6️⃣ ScrapedDrugData
+Purpose
+
+Intermediate scraped drug data.
+
+1️⃣7️⃣ GlobalScrapeMetadata
+Purpose
+
+Overall scrape summary (counts, paths).
+
+1️⃣8️⃣ Schedule
+Purpose
+
+Defines scheduled scraping jobs.
+
+1️⃣9️⃣ Monitor & VeloraMonitor
+Purpose
+
+Continuous monitoring of drugs & articles.
+
+⚙️ CONFIGURATION & UI
+2️⃣0️⃣ TemplateMaster
+
+Defines table column templates.
+
+2️⃣1️⃣ AvailableColumnsMaster
+
+Defines which columns are available.
+
+2️⃣2️⃣ PageViewConfigMaster
+
+Page UI configurations.
+
+2️⃣3️⃣ CustomerClientConfig
+
+Customer + client specific AI & SLA configs.
+
+2️⃣4️⃣ CustomerPageConfigurations
+
+Final UI column layout.
+
+📜 LOGGING & UTILITIES
+2️⃣5️⃣ UserActivityLog
+
+Tracks every user action (audit trail).
+
+2️⃣6️⃣ CompanyMappedArticleAuditLog
+
+Tracks changes made to articles.
+
+2️⃣7️⃣ TranslationRequest
+
+Tracks translation jobs.
+
+2️⃣8️⃣ Fta
+
+Full-text analysis requests.
+
+2️⃣9️⃣ ReportGenerationLog
+
+Tracks report generation.
+
+🧠 FINAL BIG PICTURE
+Customer
+ └── Client
+      └── Drug
+           └── Scrape
+                └── Article
+                     └── AI Analysis
+                          └── CompanyMappedArticle
+                               └── Assignment
+                                    └── Comments
