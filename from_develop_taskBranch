@@ -1,0 +1,107 @@
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git branch
+* main
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git branch -a
+* main
+  remotes/origin/ArticleManagementByPullRequestMain
+  remotes/origin/DEV-01/article-management
+  remotes/origin/DEV-02/naren-translate-change
+  remotes/origin/DEV-03/client_change
+  remotes/origin/DEV-04/AddMonitorAIandSourceBug
+  remotes/origin/DEV-04/AddedDrugNamePullRequest
+  remotes/origin/DEV-04/AdvanceFiltersAndURLChange
+  remotes/origin/DEV-04/AdvancefiltersBug
+  remotes/origin/DEV-04/ArticleManagementbyPullRequest
+  remotes/origin/DEV-04/CSVTOExcel
+  remotes/origin/DEV-04/ConfigSettingsAndReports
+  remotes/origin/DEV-04/DecemberBugs
+  remotes/origin/DEV-04/DuplicateArticles
+  remotes/origin/DEV-04/DuplicatesAndNormalFetaure
+  remotes/origin/DEV-04/DyanmicCols
+  remotes/origin/DEV-04/EmailSetupAndArticleDuplication
+  remotes/origin/DEV-04/ExcelAndReviewPageChanges
+  remotes/origin/DEV-04/ExcelChangesForAddedCols
+  remotes/origin/DEV-04/ExcelFileChangesAndReviewPageChanges
+  remotes/origin/DEV-04/ExcelLabelledAndDynamicCols
+  remotes/origin/DEV-04/GEN-AR
+  remotes/origin/DEV-04/HomePageAndR1ReviewedArticles
+  remotes/origin/DEV-04/ICSRBuginLinkAbstract
+  remotes/origin/DEV-04/IQVIADOwnloadExcelBug
+  remotes/origin/DEV-04/IQVIAPhase1Bugs
+  remotes/origin/DEV-04/IQVIAphase2Bugs
+  remotes/origin/DEV-04/LinkAbstractInfoBug
+  remotes/origin/DEV-04/ManualEntryForm
+  remotes/origin/DEV-04/ManualEntryFormBug
+  remotes/origin/DEV-04/MergeError
+  remotes/origin/DEV-04/MonitorViewButton
+  remotes/origin/DEV-04/MultiPartError
+  remotes/origin/DEV-04/NewCOlumnDropDownChanges
+  remotes/origin/DEV-04/NewColumnINConfigPage
+  remotes/origin/DEV-04/NoOfArticlesMonitorData
+  remotes/origin/DEV-04/OrderedRecievedDateinReviewpage
+  remotes/origin/DEV-04/PullRequestChangesAndReviewArticleChanges
+  remotes/origin/DEV-04/PullRequestURLChanges
+  remotes/origin/DEV-04/R1UserR2UserChangesAndSearchBox
+  remotes/origin/DEV-04/ReasoningBug
+  remotes/origin/DEV-04/ReasoningBugMain
+  remotes/origin/DEV-04/ReportGenertion
+  remotes/origin/DEV-04/ReportsDate
+  remotes/origin/DEV-04/ReviewPageBugAndPDF
+  remotes/origin/DEV-04/ReviewPageBugInDev
+  remotes/origin/DEV-04/ReviewPageChanges
+  remotes/origin/DEV-04/ReviewPageChangesMain
+  remotes/origin/DEV-04/ReviewPageDrugNameFix
+  remotes/origin/DEV-04/ReviewPageSDChanges
+  remotes/origin/DEV-04/SIgnalAndMultiPartBug
+  remotes/origin/DEV-04/SaveBUttonIssueInReviewPage
+  remotes/origin/DEV-04/SearchAPIChanges
+  remotes/origin/DEV-04/SearchAPIDuplicateUpdate
+  remotes/origin/DEV-04/SuspectedDrug
+  remotes/origin/DEV-04/SuspectedDrugsChanges
+  remotes/origin/DEV-04/TemplatesDownload
+  remotes/origin/DEV-04/ThresholdConfigPage
+  remotes/origin/DEV-04/TranslateAndConfigBug
+  remotes/origin/DEV-04/UserLogAndMonitorData
+  remotes/origin/DEV-04/UserLogList
+  remotes/origin/DEV-04/UserLogListMain
+  remotes/origin/DEV-04/UserLogMain
+  remotes/origin/DEV-04/reviewPageUpdatePayload
+  remotes/origin/DEV-04/title_setup
+  remotes/origin/DEV-05/ExportXmlAdded
+  remotes/origin/DEV-05/ExportXmlUiModified
+  remotes/origin/DEV-05/HeaderClientCodeAdd
+  remotes/origin/DEV-05/ScheduledDataToGMT
+  remotes/origin/DEV-05/SourcesAddedToSyncPage
+  remotes/origin/DEV-05/TranslatePageAdded
+  remotes/origin/DEV-05/UrlBasedApiCall
+  remotes/origin/DEV-07/rejected-assignment-advanceassignemnt
+  remotes/origin/DEV-08/config
+  remotes/origin/DEV-281125/Dynamic-Role-Change
+  remotes/origin/DEV_04/AdvanceFiltersinPullRequest
+  remotes/origin/DEV_04/DynamicColsBug
+  remotes/origin/DEV_04/UserLog
+  remotes/origin/DEV_04/monitorAndPullRequestPageBug
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/comparison-dialog
+  remotes/origin/develop
+  remotes/origin/duplicates-tab
+  remotes/origin/main
+  remotes/origin/revert-128-duplicates-tab
+  remotes/origin/sas-token-fix
+  remotes/origin/sas-token-fix-main
+  remotes/origin/shivateja9090-patch-1
+  remotes/origin/url-fix-env-dev-files
+  remotes/origin/url-fix-env-files-main
+  remotes/origin/url-issue
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git checkout develop
+DEV-08/Comparison_Pop_Up
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git checkout -b DEV-08/Comparison_Pop_Up origin/DEV-08/Comparison_Pop_Up
+branch 'DEV-08/Comparison_Pop_Up' set up to track 'origin/DEV-08/Comparison_Pop_Up'.
+Switched to a new branch 'DEV-08/Comparison_Pop_Up'
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git branch       
+* DEV-08/Comparison_Pop_Up
+  develop
+  main
+PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend>
+
+
+
