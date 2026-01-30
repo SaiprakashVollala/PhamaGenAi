@@ -105,3 +105,27 @@ PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend>
 
 
 
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-> 1)first Go to Branches 
+-> 2)click on New Branch 
+-> 3)put source as develop
+-> 4)Name the File as DEV-08/<branchName> eg:DEV-08/Comparison_Pop_Up
+-> 5)click on Create New Branch 
+-> 6)then Go to terminal of Vs code 
+-> 7)write => PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git checkout develop
+-> 8)you see: New Branch which you have created eg:DEV-08/Comparison_Pop_Up
+-> See and do like this:
+-> 9)PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git checkout -b DEV-08/Comparison_Pop_Up origin/DEV-08/Comparison_Pop_Up
+-> 10) You see like this : 
+branch 'DEV-08/Comparison_Pop_Up' set up to track 'origin/DEV-08/Comparison_Pop_Up'.
+Switched to a new branch 'DEV-08/Comparison_Pop_Up'
+-> 11)PS C:\Users\SAIPRAKASH VOLLALA\Documents\PhamaGenAi\grepos\PgAutoLit-Frontend> git branch
+* DEV-08/Comparison_Pop_Up
+  develop
+  main
